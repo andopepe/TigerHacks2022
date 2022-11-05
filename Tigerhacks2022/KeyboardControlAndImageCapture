@@ -1,3 +1,6 @@
+# flight time is around thirteen mins
+#max speed is 8 m/s
+#range 300-350 ft
 from glob import glob
 from djitellopy import tello
 import KeyPressModule as kp
@@ -12,7 +15,9 @@ me.connect()
 print(me.get_battery())
 
 global img
+me.send_command_with_return("downvision 1")
 me.streamon()
+me.send_command_with_return("downvision 1")
 
 
 def getKeyboardInput():
@@ -39,8 +44,10 @@ def getKeyboardInput():
             speed += 1   
         time.sleep(.1)
     elif kp.getKey("k"):
-        if speed>0: 
-            speed -= 1 
+        if speed>25: 
+            speed -= 1
+        else
+            print("Drone will not move with speed < 25")
         time.sleep(.1)
 
 
@@ -54,7 +61,7 @@ def getKeyboardInput():
 
 
 while True:
-    
+    # me.get_lowest_temperature()
     vals = getKeyboardInput()
     me.send_rc_control(vals[0],vals[1],vals[2],vals[3])
     print(speed)
