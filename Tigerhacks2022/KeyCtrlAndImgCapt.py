@@ -6,18 +6,8 @@ from djitellopy import tello
 import KeyPressModule as kp
 import time
 import cv2
-import numpy as np
 
-
-
-### Paras ###
-fSpeed=117/10 #fwd speed cm/s
-aSpeed=360/10 #Angle speed degrees/s
-interval =0.25
-
-dInterval = fspeed*interval
-aInterval = aspeed*interval
-#############
+speed=50
 
 kp.init()
 me= tello.Tello()
@@ -25,8 +15,9 @@ me.connect()
 print(me.get_battery())
 
 global img
+me.send_command_with_return("downvision 1")
 me.streamon()
-
+me.send_command_with_return("downvision 1")
 
 
 def getKeyboardInput():
@@ -55,7 +46,7 @@ def getKeyboardInput():
     elif kp.getKey("k"):
         if speed>25: 
             speed -= 1
-        else
+        else:
             print("Drone will not move with speed < 25")
         time.sleep(.1)
 
@@ -67,19 +58,13 @@ def getKeyboardInput():
 
     return [lr, fb, ud, yv]
 
-def drawPoints():
-    cv2.circle(map, (300,500),20,(0,0,255),cv2.FILLED)
+
 
 while True:
     # me.get_lowest_temperature()
     vals = getKeyboardInput()
     me.send_rc_control(vals[0],vals[1],vals[2],vals[3])
     print(speed)
-
-
-    map= np.zeros((1000, 1000, 3), np.uint8)
-
-    drawPoints()
 
     img = me.get_frame_read().frame
     img = cv2.resize(img,(360,240))

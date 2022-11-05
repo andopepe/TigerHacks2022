@@ -2,7 +2,7 @@ import pygame
 
 def init():
     pygame.init()
-    win = pygame.display.set_mode((400, 400))
+    win = pygame.display.set_mode((40, 40))
 
 def getKey(keyName):
     ans = False
