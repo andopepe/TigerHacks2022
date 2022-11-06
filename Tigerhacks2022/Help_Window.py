@@ -31,14 +31,14 @@ def openNewWindow():
 	Label(newWindow, text ="To run our program successfully you need to do the following things:\n1.) From the drop-down menu at the top, choose your movement type\n2.) Enter the distance/rotation angle for the drone\n3.) Set the desired speed for the drone (Slow, Med, or Fast)\n4.) Hit the “Add to Que” button when you’re done\n5.) Repeat 1-4 however many times\n6.) Hit the “Run Drone Que” button to start the program").pack()
 
 
-label = Label(master, text ="This is the main window")
+# label = Label(master, text ="This is the main window")
 
-label.pack(pady = 10)
+# label.pack(pady = 10)
 
 # a button widget which will open a
 # new window on button click
-btn = Button(master, text ="Click to open a new window", command = openNewWindow)
-btn.pack(pady = 10)
+# btn = Button(master, text ="Click to open a new window", command = openNewWindow)
+# btn.pack(pady = 10)
 
 # mainloop, runs infinitely
 mainloop()

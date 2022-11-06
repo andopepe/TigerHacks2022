@@ -13,7 +13,7 @@ fast_speed = 100
 
 
 def rdq():
-    print("I am here")
+    # print("I am here")
     save_array=Main.command_que
     array = save_array
     print(len(array))
