@@ -20,7 +20,7 @@ def main():
     if getKey("RIGHT"):
         print("Right Key Pressed")
     
-    
+
     
 if __name__ == '__main__':
     init()
