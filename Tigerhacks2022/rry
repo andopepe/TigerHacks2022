@@ -17,10 +17,7 @@ def run_drone_que():
     array = save_array
     print(len(array))
     if len(array) !=0:
-        me = tello.Tello()
-        me.connect()
-        print(me.get_battery())
-        me.takeoff()
+   
         while len(array) != 0:
 
             print(array)
@@ -35,24 +32,22 @@ def run_drone_que():
             print(speed)
             #Speed if statements
             if speed == 'Slow':
-                me.set_speed(slow_speed)
+                print('Set speed to low')
             if speed == 'Med':
-                me.set_speed(med_speed)
+                print('Set speed to med')
             if speed == 'Fast':
-                me.set_speed(fast_speed)
+                print('Set speed to fast')
             sleep(2)
             #Movement if statements
             if movement == 'Forward':
-                me.move_forward(distance)
+                print('Going forwards',distance,'cm')
             elif movement == 'Backwards':
-                me.move_back(distance)
+                print('Going back',distance,'cm')
             elif movement == 'Left':
-                me.move_left(distance)
+                print('Going left',distance,'cm')
             elif movement == 'Right':
-                me.move_right(distance)
+                print('Going right',distance,'cm')
             elif movement == 'Turn Left':
-                me.rotate_counter_clockwise(distance)
+                print('Turning left ',distance,'degrees')
             elif movement == 'Turn Right':
-                me.rotate_clockwise(distance)
-                
-        me.land()
+                print('Turning left',distance,'degrees')

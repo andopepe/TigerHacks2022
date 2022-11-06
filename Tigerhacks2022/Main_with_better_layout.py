@@ -1,6 +1,6 @@
 # Import the required libraries
 from tkinter import *
-import Read_Array as RA
+import rry as RA
 from djitellopy import tello
 from time import sleep
 # Create an instance of tkinter frame or window
