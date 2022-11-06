@@ -1,5 +1,6 @@
 from djitellopy import tello
 from time import sleep
+import Main_with_better_layout as Main
 #yes
 
 
@@ -11,16 +12,19 @@ med_speed = 50
 global fast
 fast_speed = 100
 
- 
 
-def run_drone_que(array):
 
+def run_drone_que():
+    save_array=Main.command_que
+    array = save_array
     print(len(array))
     if len(array) !=0:
         me = tello.Tello()
         me.connect()
+        print(me.get_battery())
         me.takeoff()
         while len(array) != 0:
+
             print(array)
             print(len(array))
             speed = array.pop(0)
@@ -52,4 +56,5 @@ def run_drone_que(array):
                 me.rotate_counter_clockwise(distance)
             elif movement == 'Turn Right':
                 me.rotate_clockwise(distance)
+                
         me.land()

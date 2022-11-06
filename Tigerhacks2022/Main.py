@@ -71,15 +71,11 @@ Movement.pack()
 # Create button, it will change label text
 # button = Button( win , text = "click Me" , command = show ).pack()
 
-# Create Label
-label = Label( win , text = " " )
-label.pack()
 
 
 
 def cal_sum():
    t1= Distance.get()
-#    t2= Speed.get()
    sum=str(command_que)#+ ' ['+t1+' '+ t2+']'
    label.config(text=(sum+'\n'))
 
@@ -87,6 +83,8 @@ def cal_sum():
 def add_to_list():
     distance = Distance.get()
     if distance != '' and Speed_clicked.get() != 'Default' and Movement_clicked.get() != 'Default':
+        # if distance < 20:
+            
         command_que.append(Speed_clicked.get()) 
         command_que.append(Movement_clicked.get())
         command_que.append(distance)
@@ -149,11 +147,18 @@ Speed = OptionMenu( win , Speed_clicked , *options2 )
 Speed.pack()
 
 
-Cmd_Que_Label=Label(win, text="Action list so far: ", font=('Calibri 15'))
-Cmd_Que_Label.pack(pady=20)
+# Cmd_Que_Label=Label(win, text="Action list so far: ", font=('Calibri 15'))
+# Cmd_Que_Label.pack(pady=20)
 Button(win, text="print list", command=cal_sum).pack()
+
 Button(win, text="Add to list", command=add_to_list).pack()
-Button(win, text="Run Drone Que", command=RA.run_drone_que(command_que)).pack() 
+
+# Create Label
+label = Label( win , height = 5, width = 200, text = " " )
+label.pack()
+
+
+Button(win, text="Run Drone Que", command='RA.run_drone_que').pack() 
 
 Button(win, text="Delete A Command", command=edit_list).pack()
 while True:
