@@ -7,7 +7,6 @@ from time import sleep
 win=Tk()
 
 global array_spot
-array_spot=0
 
 class Table:
     def __init__(self,root):
@@ -79,11 +78,13 @@ def add_to_list():
     command_que.append(clicked)
     
     command_que.append(distance)
-    # array_spot+=3
+    array_forward()
     # print(command_que)
     cal_sum()
 
-def array_spot_back():
+def array_forward():
+    array_spot+=3
+def array_back():
     array_spot-=3
 
 # Create an Entry widget
