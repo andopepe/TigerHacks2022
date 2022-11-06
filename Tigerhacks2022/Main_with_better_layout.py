@@ -266,18 +266,22 @@ def run_drone_que():
         me.connect()
         print(me.get_battery())
         me.takeoff()
+        
         while len(array) != 0:
-
-            print(array)
+        
+            print('things left ',array)
             print(len(array))
-            speed = array.pop(0)
-            movement = array.pop(0)
-            distance = array.pop(0)
-            distance = int(distance)
+            speed = array[0].pop(0)
+            movement = array[0].pop(0)
+            distance = array[0].pop(0)
+            dist = distance
+            dist = int(dist)
+            array.pop(0)
+
 
             print(speed)
             print(movement)
-            print(speed)
+            print(dist)
             #Speed if statements
             if speed == 'Slow':
                 me.set_speed(slow_speed)
@@ -288,24 +292,24 @@ def run_drone_que():
             sleep(2)
             #Movement if statements
             if movement == 'Forward':
-                print('Going forwards',distance,'cm')
-                me.move_forward(distance)
+                print('Going forwards',dist,'cm')
+                me.move_forward(dist)
             elif movement == 'Backwards':
-                print('Going back',distance,'cm')
-                me.move_back(distance)
+                print('Going back',dist,'cm')
+                me.move_back(dist)
             elif movement == 'Left':
-                print('Going left',distance,'cm')
-                me.move_left(distance)
+                print('Going left',dist,'cm')
+                me.move_left(dist)
             elif movement == 'Right':
-                print('Going right',distance,'cm')
-                me.move_right(distance)
+                print('Going right',dist,'cm')
+                me.move_right(dist)
             elif movement == 'Turn Left':
-                print('Turning left ',distance,'degrees')
-                me.rotate_counter_clockwise(distance)
+                print('Turning left ',dist,'degrees')
+                me.rotate_counter_clockwise(dist)
             elif movement == 'Turn Right':
-                print('Turning left',distance,'degrees')
-                me.rotate_clockwise(distance)
-                
+                print('Turning left',dist,'degrees')
+                me.rotate_clockwise(dist)
+            
         me.land()
 
 Button(win, text="Run Drone Que", command=run_drone_que).pack() 
