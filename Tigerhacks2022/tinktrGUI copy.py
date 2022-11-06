@@ -77,7 +77,7 @@ def add_to_list():
         # print(int(distance))
     command_que.append(speed) 
 
-    command_que.append(clicked)
+    command_que.append('Forward')
     command_que.append(distance)
 
     # print(command_que)
@@ -97,24 +97,27 @@ def array_back():
     label.config(text=(sum+'\n'))
 
 def edit_list():
+  
   win2=Tk()
-  global var
+  global t 
   win2.geometry("350x350")
   var = StringVar()
-  var.set('hello')
-  def delete():
-    global var
-    command_que.pop(int(var))
-    command_que.pop(int(var))
-    command_que.pop(int(var))
-    print(command_que)
-
+  var.set('0')
   l = Label(win2, textvariable = var)
   l.pack()
 
   t = Entry(win2, textvariable = var)
   t.pack()
-  Button(win2, text="Delete", command=delete()).pack()
+  def delete():
+    global t    
+    t.get()
+    print(t.get())
+    command_que.pop(int(t.get()))
+    command_que.pop(int(t.get()))
+    command_que.pop(int(t.get()))
+    print(command_que)
+
+  Button(win2, text="Delete", command=delete).pack()
   while True:
     win2.update_idletasks()
     win2.update()
