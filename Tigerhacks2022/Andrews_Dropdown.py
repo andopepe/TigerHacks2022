@@ -52,7 +52,6 @@ class Application(tk.Frame):
 
         self.button = tk.Button(self, text="Add", command=lambda : sample(self.Movement_9, self.Altitude_9))
        
-
         # self.Movement.set('Asia')
 
         self.Move.pack()
