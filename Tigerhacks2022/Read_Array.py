@@ -1,6 +1,6 @@
 from djitellopy import tello
 from time import sleep
-
+#yes
 
 
 #speed variables:
