@@ -1,9 +1,13 @@
 # Import the required libraries
 from tkinter import *
-# import Read_Array
+import Read_Array as RA
+from djitellopy import tello
+from time import sleep
 # Create an instance of tkinter frame or window
 win=Tk()
 
+global array_spot
+array_spot=0
 
 class Table:
     def __init__(self,root):
@@ -17,19 +21,6 @@ class Table:
                  
                 self.e.grid(row=i, column=j)
                 self.e.insert(END, lst[i][j])
-
-# take the data
-lst = [(1,'Raj','Mumbai',19),
-       (2,'Aaryan','Pune',18),
-       (3,'Vaishnavi','Mumbai',20),
-       (4,'Rachna','Mumbai',21),
-       (5,'Shubham','Delhi',21)]
-  
-# find total number of rows and
-# columns in list
-total_rows = len(lst)
-total_columns = len(lst[0])
-
 
 
 # Set the size of the tkinter window
@@ -74,7 +65,7 @@ def cal_sum():
    t1= Distance.get()
    t2= Speed.get()
    sum=str(command_que)#+ ' ['+t1+' '+ t2+']'
-   label.config(text=sum)
+   label.config(text=(sum+'\n'))
 
 
 def add_to_list():
@@ -88,9 +79,12 @@ def add_to_list():
     command_que.append(clicked)
     
     command_que.append(distance)
-    
+    # array_spot+=3
     # print(command_que)
     cal_sum()
+
+def array_spot_back():
+    array_spot-=3
 
 # Create an Entry widget
 Label(win, text="Enter Distance (or degrees for turn)", font=('Calibri 10')).pack()
@@ -105,7 +99,9 @@ Speed.pack()
 Cmd_Que_Label=Label(win, text="Action list so far: ", font=('Calibri 15'))
 Cmd_Que_Label.pack(pady=20)
 
-Button(win, text="Add to list", command=add_to_list).pack() 
+Button(win, text="Add to list", command=add_to_list).pack()
+
+Button(win, text="Run Drone Que", command=RA.run_drone_que(command_que)).pack() 
 
 
 while True:

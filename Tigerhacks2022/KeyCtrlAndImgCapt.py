@@ -15,9 +15,8 @@ me.connect()
 print(me.get_battery())
 
 global img
-me.send_command_with_return("downvision 1")
 me.streamon()
-me.send_command_with_return("downvision 1")
+
 
 
 def getKeyboardInput():
