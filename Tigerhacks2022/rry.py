@@ -12,12 +12,12 @@ fast_speed = 100
 
 
 
-def run_drone_que():
+def rdq():
+    print("I am here")
     save_array=Main.command_que
     array = save_array
     print(len(array))
     if len(array) !=0:
-   
         while len(array) != 0:
 
             print(array)

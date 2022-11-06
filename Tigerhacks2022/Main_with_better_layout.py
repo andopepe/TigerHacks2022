@@ -202,8 +202,54 @@ Button(win, text="Add to list", command=add_to_list).pack()
 label = Label( win , height = 5, width = 200, text = " " )
 label.pack()
 
-Rdq = Button(win, text="Run Drone Que", command='RA.run_drone_que')
-Rdq.pack()
+def rdq():
+
+    save_array=command_que
+    array = save_array
+    print(array, len(array))
+
+
+    
+    if len(array) !=0:
+        while len(array) != 0:
+   
+            chunk=[]
+            chunk = array.pop(0)
+            print('chunk = ', chunk)
+            print('chunk length= ',str(len(chunk)))
+            speed = chunk.pop(0)
+            movement = chunk.pop(0)
+            distance = chunk.pop(0)
+            distance = int(distance)
+
+            print(speed)
+            print(movement)
+            print(distance)
+            #Speed if statements
+            if speed == 'Slow':
+                print('Set speed to low')
+            elif speed == 'Med':
+                print('Set speed to med')
+            elif speed == 'Fast':
+                print('Set speed to fast')
+            sleep(2)
+            #Movement if statements
+            if movement == 'Forward':
+                print('Going forwards',distance,'cm')
+            elif movement == 'Backwards':
+                print('Going back',distance,'cm')
+            elif movement == 'Left':
+                print('Going left',distance,'cm')
+            elif movement == 'Right':
+                print('Going right',distance,'cm')
+            elif movement == 'Turn Left':
+                print('Turning left ',distance,'degrees')
+            elif movement == 'Turn Right':
+                print('Turning left',distance,'degrees')
+
+
+
+Button(win, text="Run Drone Que", command=rdq).pack() 
 
 
 def stop_program():
@@ -214,6 +260,75 @@ Del= Button(win, text="Delete A Command", command=new_window)
 Del.pack()
 Stop = Button(win, text="Exit the program", command=stop_program)
 Stop.pack()
+
+
+
+
+
+
+
+#speed variables:
+global slow
+slow_speed = 25
+global med
+med_speed = 50
+global fast
+fast_speed = 100
+
+
+
+def rdq():
+    print("I am here")
+    save_array=Main.command_que
+    array = save_array
+    print(len(array))
+    if len(array) !=0:
+        while len(array) != 0:
+
+            print(array)
+            print(len(array))
+            speed = array.pop(0)
+            movement = array.pop(0)
+            distance = array.pop(0)
+            distance = int(distance)
+
+            print(speed)
+            print(movement)
+            print(speed)
+            #Speed if statements
+            if speed == 'Slow':
+                print('Set speed to low')
+            if speed == 'Med':
+                print('Set speed to med')
+            if speed == 'Fast':
+                print('Set speed to fast')
+            sleep(2)
+            #Movement if statements
+            if movement == 'Forward':
+                print('Going forwards',distance,'cm')
+            elif movement == 'Backwards':
+                print('Going back',distance,'cm')
+            elif movement == 'Left':
+                print('Going left',distance,'cm')
+            elif movement == 'Right':
+                print('Going right',distance,'cm')
+            elif movement == 'Turn Left':
+                print('Turning left ',distance,'degrees')
+            elif movement == 'Turn Right':
+                print('Turning left',distance,'degrees')
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

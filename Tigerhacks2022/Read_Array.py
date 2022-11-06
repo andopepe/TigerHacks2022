@@ -1,6 +1,6 @@
 from djitellopy import tello
 from time import sleep
-import Main_with_better_layout as Main
+import Main
 
 #speed variables:
 global slow
