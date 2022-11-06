@@ -14,9 +14,7 @@ fast_speed = 100
  
 
 def run_drone_que(array):
-    # array=[]
-    # array= ['Fast', 'Turn Left', '360']
-    # array= ['Fast', 'Forward', '300', 'Med', 'Backwards', '300', 'Slow', 'Forward', '300']
+
     print(len(array))
     if len(array) !=0:
         me = tello.Tello()
